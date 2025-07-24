@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-backend
+  labels:
+    app: my-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-backend
+  template:
+    metadata:
+      labels:
+        app: my-backend
+    spec:
+      containers:
+        - name: my-backend
+          image: 034566793512.dkr.ecr.us-east-1.amazonaws.com/backend/repo:latest
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
+      imagePullSecrets:
+        - name: ecr-registry-secret
