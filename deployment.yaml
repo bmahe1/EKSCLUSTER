@@ -17,5 +17,4 @@ spec:
         image: 034566793512.dkr.ecr.us-east-1.amazonaws.com/backend/repo:latest
         ports:
         - containerPort: 5000
-      imagePullSecrets:
-      - name: ecr-registry-secret
+      # Removed imagePullSecrets since we're using IAM roles
